@@ -1,0 +1,25 @@
+<div class="min-h-screen flex flex-col md:flex-row bg-gray-50">
+  <div
+    class="hidden w-1/2 bg-[#f1f5fe] md:flex flex-col justify-center items-start ps-20 rounded-tr-[100px] rounded-br-[100px] shadow-custom"
+  >
+    <h1 class="text-5xl font-bold">
+      Welcome to <br />
+      <span class="text-main">Elevate</span>
+    </h1>
+    <p class="text-black font-normal my-4">
+      Quidem autem voluptatibus qui quaerat aspernatur <br />
+      architecto natus
+    </p>
+    <img
+      src="/image/bro.png"
+      alt="Illustration"
+      class="size-[400px] object-cover"
+    />
+  </div>
+
+  <div class="md:w-1/2 flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
