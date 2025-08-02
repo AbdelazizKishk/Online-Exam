@@ -1,0 +1,270 @@
+<div class="flex justify-end text-sm text-gray-500 mb-4 gap-[10px]">
+  <span>English </span>
+  <a class="text-main font-bold">Sign up</a>
+  <a
+    routerLink="/login"
+    class="bg-white rounded-2xl px-3 border-1 border-gray-200 shadow-2xl"
+    >sign in</a
+  >
+</div>
+
+<h2 class="text-2xl font-bold mb-6 ms-3">Sign up</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="mx-1 md:mx-4">
+  <div class="flex items-center justify-center mb-4">
+    <div class="flex-grow mb-0">
+      @let userNameControl = registerForm.get('username');
+      <input
+        [class]="{
+          'border-red-500': userNameControl?.errors && userNameControl?.touched,
+          'border-green-500': !userNameControl?.errors
+        }"
+        type="text"
+        formControlName="username"
+        placeholder="User Name"
+        id="username"
+        class="custom-input custom-shadow"
+      />
+
+      @if (userNameControl?.errors && userNameControl?.touched) {
+      <div class="text-red-700 p-2 rounded" role="alert">
+        @if (userNameControl?.getError('required')) {
+        <div class="text-red-600 text-sm">
+          <small>First Name is required</small>
+        </div>
+        } @else if (userNameControl?.getError('minlength')) {
+        <div class="text-red-600 text-sm">
+          <small>First Name should be at least 3 characters</small>
+        </div>
+
+        } @else if (userNameControl?.getError('maxlength')) {
+        <div class="text-red-600 text-sm">
+          <small>First Name should be at most 20 characters</small>
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+  <div class="flex items-center justify-center mb-4">
+    <div class="flex-grow mb-0">
+      @let nameControl = registerForm.get('firstName');
+      <input
+        [class]="{
+          'border-red-500': nameControl?.errors && nameControl?.touched,
+          'border-green-500': !nameControl?.errors
+        }"
+        type="text"
+        formControlName="firstName"
+        placeholder="First Name"
+        id="firstName"
+        class="custom-input custom-shadow"
+      />
+
+      @if (nameControl?.errors && nameControl?.touched) {
+      <div class="text-red-700 p-2 rounded" role="alert">
+        @if (nameControl?.getError('required')) {
+        <div class="text-red-600 text-sm">
+          <small>First Name is required</small>
+        </div>
+        } @else if (nameControl?.getError('minlength')) {
+        <div class="text-red-600 text-sm">
+          <small>First Name should be at least 3 characters</small>
+        </div>
+
+        } @else if (nameControl?.getError('maxlength')) {
+        <div class="text-red-600 text-sm">
+          <small>First Name should be at most 20 characters</small>
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+  <div class="flex items-center justify-center mb-4">
+    <div class="flex-grow mb-0">
+      @let lastnameControl = registerForm.get('lastName');
+      <input
+        [class]="{
+          'border-red-500': lastnameControl?.errors && lastnameControl?.touched,
+          'border-green-500': !lastnameControl?.errors
+        }"
+        type="text"
+        formControlName="lastName"
+        placeholder="Last Name"
+        id="lastName"
+        class="custom-input custom-shadow"
+      />
+
+      @if (lastnameControl?.errors && lastnameControl?.touched) {
+      <div class="text-red-700 p-2 rounded" role="alert">
+        @if (lastnameControl?.getError('required')) {
+        <div class="text-red-600 text-sm">
+          <small>last Name is required</small>
+        </div>
+        } @else if (lastnameControl?.getError('minlength')) {
+        <div class="text-red-600 text-sm">
+          <small>last Name should be at least 3 characters</small>
+        </div>
+
+        } @else if (lastnameControl?.getError('maxlength')) {
+        <div class="text-red-600 text-sm">
+          <small>last Name should be at most 20 characters</small>
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="flex items-center mb-4">
+    <div class="flex-grow mb-0">
+      @let emailControl = registerForm.get('email');
+      <input
+        [class]="{
+          'border-red-500': emailControl?.errors && emailControl?.touched,
+          'border-green-500': !emailControl?.errors
+        }"
+        type="email"
+        formControlName="email"
+        id="email"
+        placeholder="Email"
+        class="custom-input custom-shadow"
+      />
+      @if (emailControl?.errors && emailControl?.touched) {
+      <div class="text-red-700 p-2 rounded" role="alert">
+        @if (emailControl?.getError('required')) {
+        <div class="text-red-600 text-sm">
+          <small>Email is required</small>
+        </div>
+        } @else if (emailControl?.getError('email')) {
+        <div class="text-red-600 text-sm">
+          <small>Enter a valid Email</small>
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="flex items-center mb-4">
+    <div class="flex-grow mb-0">
+      @let passwordControl = registerForm.get('password');
+      <input
+        [class]="{
+          'border-red-500': passwordControl?.errors && passwordControl?.touched,
+          'border-green-500': !passwordControl?.errors
+        }"
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+        id="Password"
+        class="custom-input custom-shadow"
+      />
+
+      @if (passwordControl?.errors && passwordControl?.touched) {
+      <div class="text-red-600 p-2 rounded" role="alert">
+        @if (passwordControl?.invalid && passwordControl?.touched) {
+        <div class="text-red-600 text-sm space-y-1">
+          @if (passwordControl?.errors?.['required']) {
+          <small>Password is required.</small>
+          } @if (passwordControl?.errors?.['pattern']) {
+          <small>Password must be Vailed.</small>
+          }
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="flex items-center mb-4">
+    <div class="flex-grow mb-0">
+      @let rePasswordControl = registerForm.get('rePassword');
+      <input
+        [class]="{
+          'border-red-500':
+            rePasswordControl?.errors && rePasswordControl?.touched,
+          'border-green-500': !rePasswordControl?.errors
+        }"
+        type="password"
+        formControlName="rePassword"
+        placeholder="Comfirm Password"
+        id="rePassword"
+        class="custom-input custom-shadow"
+      />
+
+      @if (registerForm.hasError('mismatch') && rePasswordControl?.touched) {
+      <div class="text-red-600 text-sm p-2 rounded" role="alert">
+        <small>Passwords do not match</small>
+      </div>
+      }
+    </div>
+  </div>
+  <div class="flex items-center justify-center mb-4">
+    <div class="flex-grow mb-0">
+      @let phoneControl = registerForm.get('phone');
+      <input
+        [class]="{
+          'border-red-500': phoneControl?.errors && phoneControl?.touched,
+          'border-green-500': !phoneControl?.errors
+        }"
+        type="text"
+        formControlName="phone"
+        placeholder="phone"
+        id="phone"
+        class="custom-input custom-shadow"
+      />
+
+      @if (phoneControl?.errors && phoneControl?.touched) {
+      <div class="text-red-700 p-2 rounded" role="alert">
+        @if (phoneControl?.getError('required')) {
+        <div class="text-red-600 text-sm">
+          <small>Phone is required</small>
+        </div>
+        } @if (phoneControl?.errors?.['pattern']) {
+        <small>Phone must be Vailed.</small>
+        }
+      </div>
+      }
+    </div>
+  </div>
+  <p class="text-center font-semibold mb-8">
+    Already have an account?
+    <span routerLink="/login" class="text-main cursor-pointer">Login</span>
+  </p>
+  <div class="mb-3">
+    <button
+      [disabled]="registerForm.invalid"
+      type="submit"
+      class="custom-button"
+    >
+      Create Account @if (isLoading) {
+      <span><i class="fas fa-spin fa-spinner"></i></span>
+      }
+    </button>
+  </div>
+</form>
+
+<div class="mt-6">
+  <div class="flex items-center justify-center">
+    <div class="w-[30%] h-px bg-gray-300"></div>
+    <span class="mx-4 text-gray-500 whitespace-nowrap">Or Continue with</span>
+    <div class="w-[30%] h-px bg-gray-300"></div>
+  </div>
+  <!-- Icons -->
+  <div class="flex justify-center gap-4 mt-4">
+    <div class="custom-cardIcon">
+      <img src="/image/icons/Logo Google.png" class="size-6" />
+    </div>
+    <div class="custom-cardIcon">
+      <img src="/image/icons/twitter.png" class="size-6" />
+    </div>
+    <div class="custom-cardIcon">
+      <img src="/image/icons/facebook.png" class="size-6" />
+    </div>
+    <div class="custom-cardIcon">
+      <img src="/image/icons/Apple.png" class="size-6" />
+    </div>
+  </div>
+</div>

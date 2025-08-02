@@ -1,0 +1,110 @@
+<div class="flex justify-end text-sm text-gray-500 mb-4 gap-[10px]">
+  <span>English </span>
+  <a class="text-main font-bold">Sign in</a>
+  <a
+    routerLink="/register"
+    class="bg-white rounded-2xl px-3 border-1 border-gray-200 shadow-2xl"
+    >Register</a
+  >
+</div>
+
+<h2 class="text-2xl font-bold mb-6 ms-3">Sign in</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mx-1 md:mx-4">
+  <div class="flex items-center mb-4">
+    <div class="flex-grow mb-0">
+      @let emailControl = loginForm.get('email');
+      <input
+        [class]="{
+          'border-red-500': emailControl?.errors && emailControl?.touched,
+          'border-green-500': !emailControl?.errors
+        }"
+        type="email"
+        formControlName="email"
+        id="email"
+        placeholder="Email"
+        class="custom-input custom-shadow"
+      />
+      @if (emailControl?.errors && emailControl?.touched) {
+      <div class="text-red-700 p-2 rounded" role="alert">
+        @if (emailControl?.getError('required')) {
+        <div class="text-red-600 text-sm">
+          <small>Email is required</small>
+        </div>
+        } @else if (emailControl?.getError('email')) {
+        <div class="text-red-600 text-sm">
+          <small>Enter a valid Email</small>
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="flex items-center mb-4">
+    <div class="flex-grow mb-0">
+      @let passwordControl = loginForm.get('password');
+      <input
+        [class]="{
+          'border-red-500': passwordControl?.errors && passwordControl?.touched,
+          'border-green-500': !passwordControl?.errors
+        }"
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+        id="Password"
+        class="custom-input custom-shadow"
+      />
+
+      @if (passwordControl?.errors && passwordControl?.touched) {
+      <div class="text-red-600 p-2 rounded" role="alert">
+        @if (passwordControl?.invalid && passwordControl?.touched) {
+        <div class="text-red-600 text-sm space-y-1">
+          @if (passwordControl?.errors?.['required']) {
+          <small>Password is required.</small>
+          } @if (passwordControl?.errors?.['pattern']) {
+          <small>Password must be Vailed.</small>
+          }
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+  <p
+    routerLink="/resetpassword"
+    class="text-end text-main font-semibold mb-8 cursor-pointer"
+  >
+    Recover Password ?
+  </p>
+  <div class="mb-3">
+    <button [disabled]="loginForm.invalid" type="submit" class="custom-button">
+      Sign in @if (isLoading) {
+      <span><i class="fas fa-spin fa-spinner"></i></span>
+      }
+    </button>
+  </div>
+  <p-toast />
+</form>
+<div class="mt-6">
+  <div class="flex items-center justify-center">
+    <div class="w-[30%] h-px bg-gray-300"></div>
+    <span class="mx-4 text-gray-500 whitespace-nowrap">Or Continue with</span>
+    <div class="w-[30%] h-px bg-gray-300"></div>
+  </div>
+  <!-- Icons -->
+  <div class="flex justify-center gap-4 mt-4">
+    <div class="custom-cardIcon">
+      <img src="/image/icons/Logo Google.png" class="size-6" />
+    </div>
+    <div class="custom-cardIcon">
+      <img src="/image/icons/twitter.png" class="size-6" />
+    </div>
+    <div class="custom-cardIcon">
+      <img src="/image/icons/facebook.png" class="size-6" />
+    </div>
+    <div class="custom-cardIcon">
+      <img src="/image/icons/Apple.png" class="size-6" />
+    </div>
+  </div>
+</div>

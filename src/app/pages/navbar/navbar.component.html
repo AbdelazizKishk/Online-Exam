@@ -1,0 +1,52 @@
+<!-- Navbar for lap -->
+<header
+  class="hidden md:bg-white shadow p-4 md:flex items-center justify-between gap-4"
+>
+  <input
+    type="text"
+    placeholder="Search Exam"
+    class="flex-1 px-4 py-2 border rounded-lg"
+  />
+  <div class="flex items-center gap-4 md:me-10">
+    <button class="bg-main text-white px-8 py-2 rounded-2xl">Start Quiz</button>
+    <img
+      src="https://i.pravatar.cc/40"
+      alt="User"
+      class="h-10 w-10 rounded-full object-cover"
+    />
+  </div>
+</header>
+<!-- Navbar for mobile -->
+<header
+  class="bg-main md:hidden shadow p-4 flex items-center justify-between gap-4"
+>
+  <div class="flex items-center gap-6">
+    <button
+      data-drawer-target="logo-sidebar"
+      data-drawer-toggle="logo-sidebar"
+      aria-controls="logo-sidebar"
+      type="button"
+      class="text-white"
+    >
+      <svg
+        class="w-6 h-6"
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+        ></path>
+      </svg>
+    </button>
+    <img src="/image/icons/searchwhite.png" alt="Search" class="h-6 w-6" />
+  </div>
+  <img
+    src="https://i.pravatar.cc/40"
+    alt="User"
+    class="h-10 w-10 rounded-full object-cover"
+  />
+</header>
